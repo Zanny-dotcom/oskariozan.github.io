@@ -108,16 +108,33 @@ const BACKEND_URL = 'http://localhost:8000';
     isLoading = true;
     render();
 
-    // Mock response — will be replaced with fetch()
-    setTimeout(() => {
-      isLoading = false;
-      messages.push({
-        role: 'assistant',
-        text: 'Thanks for your interest in Z Bikes! This is a mock response — the backend isn\'t wired up yet.',
-        sources: ['about.md', 'faq.md'],
+    fetch(BACKEND_URL + '/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text }),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error('Server error (' + res.status + ')');
+        return res.json();
+      })
+      .then((data) => {
+        messages.push({
+          role: 'assistant',
+          text: data.answer,
+          sources: data.sources || [],
+        });
+      })
+      .catch(() => {
+        messages.push({
+          role: 'assistant',
+          text: 'Sorry, I couldn\u2019t reach the server. Please try again later.',
+          sources: [],
+        });
+      })
+      .finally(() => {
+        isLoading = false;
+        render();
       });
-      render();
-    }, 1200);
   });
 
   // Initial render (empty)
