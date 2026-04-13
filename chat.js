@@ -2,7 +2,7 @@
    Z BIKES — Chat Widget
    ============================ */
 
-const BACKEND_URL = 'http://localhost:8000';
+const BACKEND_URL = 'https://instrumental-resolution-recognize-binary.trycloudflare.com';
 
 (function () {
   const messages = [];
