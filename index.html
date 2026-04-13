@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Z Bikes — Reborn Classics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <span class="preloader-letter">Z</span>
+      <div class="preloader-bar"><div class="preloader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo">Z<span class="gold">.</span></a>
+    <div class="nav-links">
+      <a href="#collection">Collection</a>
+      <a href="#story">Story</a>
+      <a href="#process">Process</a>
+      <a href="#newsletter" class="nav-cta">Stay Updated</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#collection" class="mobile-link">Collection</a>
+    <a href="#story" class="mobile-link">Story</a>
+    <a href="#process" class="mobile-link">Process</a>
+    <a href="#newsletter" class="mobile-link">Stay Updated</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-grain"></div>
+      <div class="hero-gradient"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal">Refurbished &mdash; Reimagined &mdash; Reborn</p>
+      <h1 class="hero-title">
+        <span class="hero-line reveal">Old Steel,</span>
+        <span class="hero-line reveal"><em class="gold">New</em> Soul.</span>
+      </h1>
+      <p class="hero-sub reveal">We rescue forgotten bicycles and transform them into sleek, modern machines. Every Z Bike carries a story from the past — polished for the future.</p>
+      <a href="#collection" class="hero-btn reveal">
+        <span>Explore Collection</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+      </a>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+    <div class="hero-badge">
+      <span>Est.</span>
+      <strong>2024</strong>
+      <span>Pori, FI</span>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Vintage Revival &bull; Handcrafted &bull; Steel Frames &bull; Urban Mobility &bull; Zero Waste &bull; Custom Builds &bull; Pori Finland &bull; Vintage Revival &bull; Handcrafted &bull; Steel Frames &bull; Urban Mobility &bull; Zero Waste &bull; Custom Builds &bull; Pori Finland &bull;</span>
+    </div>
+  </div>
+
+  <!-- Horizontal Scroll — Collection -->
+  <section class="horizontal-section" id="collection">
+    <div class="horizontal-header">
+      <p class="section-eyebrow reveal">The Collection</p>
+      <h2 class="section-title reveal">Featured<br /><em class="gold">Builds</em></h2>
+    </div>
+    <div class="horizontal-wrapper">
+      <div class="horizontal-track" id="horizontalTrack">
+        <!-- Card 1 — Burgundy & Silver pair by the shed -->
+        <article class="bike-card">
+          <div class="bike-card-img">
+            <img src="images/bike1.jpg" alt="The Crimson Classic and Silver Ghost" />
+            <div class="bike-card-overlay"></div>
+          </div>
+          <div class="bike-card-info">
+            <span class="bike-card-number">01</span>
+            <h3>The Crimson<br />Classic</h3>
+            <p>1970s steel road frame, deep burgundy respray with hand-polished chrome. Drop bars, leather wrap, and a ride that purrs.</p>
+            <div class="bike-card-meta">
+              <span>Road</span>
+              <span>2&times;6 Speed</span>
+              <span>700c</span>
+            </div>
+          </div>
+        </article>
+        <!-- Card 2 — Silver & Black urban pair -->
+        <article class="bike-card">
+          <div class="bike-card-img">
+            <img src="images/bike2.jpg" alt="The Silver Ghost and Midnight Runner" />
+            <div class="bike-card-overlay"></div>
+          </div>
+          <div class="bike-card-info">
+            <span class="bike-card-number">02</span>
+            <h3>The Silver<br />Ghost</h3>
+            <p>Restored chrome touring frame turned urban commuter. Clean lines, minimal branding, maximum presence on the street.</p>
+            <div class="bike-card-meta">
+              <span>Touring</span>
+              <span>Single Speed</span>
+              <span>27"</span>
+            </div>
+          </div>
+        </article>
+        <!-- Card 3 — Black gravel bike -->
+        <article class="bike-card">
+          <div class="bike-card-img">
+            <img src="images/bike2.jpg" alt="The Midnight Runner" style="object-position: right center;" />
+            <div class="bike-card-overlay"></div>
+          </div>
+          <div class="bike-card-info">
+            <span class="bike-card-number">03</span>
+            <h3>The Midnight<br />Runner</h3>
+            <p>Blacked-out gravel build on a vintage steel frame. Modern Shimano drivetrain meets old-world craftsmanship. All road, no limits.</p>
+            <div class="bike-card-meta">
+              <span>Gravel</span>
+              <span>2&times;8 Speed</span>
+              <span>700c</span>
+            </div>
+          </div>
+        </article>
+        <!-- Card 4 — Crimson beach beauty -->
+        <article class="bike-card">
+          <div class="bike-card-img">
+            <img src="images/bike3.jpg" alt="The Pori Drifter" />
+            <div class="bike-card-overlay"></div>
+          </div>
+          <div class="bike-card-info">
+            <span class="bike-card-number">04</span>
+            <h3>The Pori<br />Drifter</h3>
+            <p>A beach-side beauty. Deep crimson frame with wrapped drops, built for long sunset rides along Yyteri's coastline.</p>
+            <div class="bike-card-meta">
+              <span>Road</span>
+              <span>2&times;5 Speed</span>
+              <span>27"</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="horizontal-progress">
+      <div class="horizontal-progress-bar" id="horizontalProgress"></div>
+    </div>
+  </section>
+
+  <!-- Brand Story -->
+  <section class="story" id="story">
+    <div class="story-grid">
+      <div class="story-left">
+        <p class="section-eyebrow reveal">Our Story</p>
+        <h2 class="section-title reveal">Born in Pori.<br /><em class="gold">Built with soul.</em></h2>
+      </div>
+      <div class="story-right">
+        <div class="story-text reveal">
+          <p class="story-lead">Z Bikes started in a garage in Pori, Finland — with a rusty frame, a can of paint, and the belief that beautiful things shouldn't end up in landfills.</p>
+          <p>Every bicycle we rescue has lived a life. Some were racing machines in the 70s. Others carried groceries across town for decades. We strip them down to bare steel, repair what needs fixing, and rebuild them as sleek modern rides that turn heads on every street corner.</p>
+          <p>We're not a factory. We're craftspeople. Each Z Bike is a one-of-one build — unique history, unique character, unmistakable style.</p>
+        </div>
+        <div class="story-stats reveal">
+          <div class="stat">
+            <span class="stat-number" data-count="150">0</span><span class="gold">+</span>
+            <span class="stat-label">Bikes Reborn</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-count="0">0</span>
+            <span class="stat-label">Waste Frames</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-count="1">0</span>
+            <span class="stat-label">Of a Kind</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process" id="process">
+    <div class="process-header">
+      <p class="section-eyebrow reveal">The Process</p>
+      <h2 class="section-title reveal">From Rust<br /><em class="gold">to Glory</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-number">01</div>
+        <h3>Source</h3>
+        <p>We hunt flea markets, barns, and online listings across Finland for forgotten steel frames with potential.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-number">02</div>
+        <h3>Strip</h3>
+        <p>Every frame is stripped to bare metal. We inspect for cracks, corrosion, and alignment before any work begins.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-number">03</div>
+        <h3>Restore</h3>
+        <p>Professional respray, chrome polishing, new bearings. The frame gets a second life with modern components.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-number">04</div>
+        <h3>Ride</h3>
+        <p>Final assembly, test ride, and dialing in the perfect fit. Your Z Bike is ready for the streets.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Large Quote -->
+  <section class="quote-section">
+    <blockquote class="big-quote reveal">
+      <span class="quote-mark gold">&ldquo;</span>
+      Every dent tells a story.<br />We just give it a <em class="gold">new chapter.</em>
+      <span class="quote-mark gold">&rdquo;</span>
+    </blockquote>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter" id="newsletter">
+    <div class="newsletter-content">
+      <p class="section-eyebrow reveal">Stay in the Loop</p>
+      <h2 class="section-title reveal">Get First Access<br />to <em class="gold">New Builds</em></h2>
+      <p class="newsletter-sub reveal">Join the Z Bikes mailing list. Be the first to see new restorations, behind-the-scenes content, and exclusive drops.</p>
+      <form class="newsletter-form reveal" onsubmit="event.preventDefault(); this.classList.add('submitted');">
+        <div class="form-group">
+          <input type="email" placeholder="your@email.com" required />
+          <button type="submit">
+            <span>Subscribe</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        <p class="form-note">No spam. Just bikes. Unsubscribe anytime.</p>
+        <p class="form-success">Welcome to the Z Bikes family!</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo">Z<span class="gold">.</span></span>
+        <p>Refurbished bicycles,<br />reimagined for modern riders.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <a href="#collection">Collection</a>
+          <a href="#story">Story</a>
+          <a href="#process">Process</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">Email Us</a>
+        </div>
+        <div class="footer-col">
+          <h4>Visit</h4>
+          <p>Pori, Finland</p>
+          <p>By appointment</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024 Z Bikes. All rights reserved.</span>
+      <span>Crafted with steel &amp; soul</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
