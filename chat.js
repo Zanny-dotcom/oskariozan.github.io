@@ -2,7 +2,7 @@
    Z BIKES — Chat Widget
    ============================ */
 
-const BACKEND_URL = 'https://instrumental-resolution-recognize-binary.trycloudflare.com';
+const BACKEND_URL = 'https://animated-places-charles-rentals.trycloudflare.com';
 
 (function () {
   const messages = [];
