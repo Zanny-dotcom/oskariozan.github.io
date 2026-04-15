@@ -2,7 +2,7 @@
    Z BIKES — Chat Widget
    ============================ */
 
-const BACKEND_URL = 'https://instrumental-resolution-recognize-binary.trycloudflare.com';
+const BACKEND_URL = 'https://wizard-senior-part-approve.trycloudflare.com';
 
 (function () {
   const messages = [];

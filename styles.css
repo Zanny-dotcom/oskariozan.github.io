@@ -1065,6 +1065,177 @@ img {
 }
 
 /* ============================
+   Projects Section
+   ============================ */
+
+.projects {
+  padding: 8rem 3rem;
+  border-top: 1px solid var(--grey);
+}
+
+.projects-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.project-card {
+  padding: 2.5rem 2rem;
+  background: var(--grey-dark);
+  border: 1px solid var(--grey);
+  position: relative;
+  transition: border-color 0.4s, transform 0.5s var(--ease-out);
+}
+
+.project-card:hover {
+  border-color: var(--gold-dark);
+  transform: translateY(-6px);
+}
+
+.project-card-number {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--grey);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  transition: color 0.4s;
+}
+
+.project-card:hover .project-card-number {
+  color: var(--gold-dark);
+}
+
+.project-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.project-card p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--white-dim);
+  margin-bottom: 1.5rem;
+}
+
+.project-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-card-meta span {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--gold-dark);
+}
+
+/* ============================
+   Knowledge Section
+   ============================ */
+
+.knowledge {
+  padding: 8rem 3rem;
+  border-top: 1px solid var(--grey);
+}
+
+.knowledge-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.knowledge-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.knowledge-card {
+  display: block;
+  padding: 2.5rem 2rem;
+  border: 1px solid var(--grey);
+  transition: border-color 0.4s, background 0.4s;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.knowledge-card:hover {
+  border-color: var(--gold-dark);
+  background: var(--grey-dark);
+}
+
+.knowledge-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.knowledge-card p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--white-dim);
+  margin-bottom: 1.5rem;
+}
+
+.knowledge-card:hover .step-number {
+  color: var(--gold-dark);
+}
+
+.knowledge-card-link {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey-light);
+  transition: color 0.3s;
+}
+
+.knowledge-card:hover .knowledge-card-link {
+  color: var(--gold);
+}
+
+/* --- Portfolio Responsive --- */
+@media (max-width: 1024px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .knowledge-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .projects,
+  .knowledge {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .knowledge-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================
    Chat Widget
    ============================ */
 
