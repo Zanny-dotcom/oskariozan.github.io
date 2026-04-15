@@ -55,55 +55,6 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 reveals.forEach(el => revealObserver.observe(el));
 
-// Horizontal scroll — drag to scroll (only on pages with the collection)
-const wrapper = document.querySelector('.horizontal-wrapper');
-const track = document.getElementById('horizontalTrack');
-const progressBar = document.getElementById('horizontalProgress');
-
-if (wrapper) {
-  let isDragging = false;
-  let startX;
-  let scrollLeft;
-
-  wrapper.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    wrapper.style.cursor = 'grabbing';
-    startX = e.pageX - wrapper.offsetLeft;
-    scrollLeft = wrapper.scrollLeft;
-  });
-
-  wrapper.addEventListener('mouseleave', () => {
-    isDragging = false;
-    wrapper.style.cursor = 'grab';
-  });
-
-  wrapper.addEventListener('mouseup', () => {
-    isDragging = false;
-    wrapper.style.cursor = 'grab';
-  });
-
-  wrapper.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - wrapper.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    wrapper.scrollLeft = scrollLeft - walk;
-  });
-
-  wrapper.addEventListener('scroll', () => {
-    const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
-    const pct = maxScroll > 0 ? (wrapper.scrollLeft / maxScroll) * 100 : 0;
-    progressBar.style.width = pct + '%';
-  });
-
-  wrapper.addEventListener('wheel', (e) => {
-    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-      e.preventDefault();
-      wrapper.scrollLeft += e.deltaY;
-    }
-  }, { passive: false });
-}
-
 // Stat counter animation
 const statNumbers = document.querySelectorAll('.stat-number');
 

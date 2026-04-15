@@ -75,10 +75,16 @@
       <p class="section-eyebrow reveal">What I Build</p>
       <h2 class="section-title reveal">Featured<br /><em class="gold">Projects</em></h2>
       <div class="project-grid">
-        <article class="project-card reveal">
+        <article class="project-card project-card-ragbot reveal">
+          <img src="images/ragbot.webp" alt="RAG Chatbot mascot" class="project-card-mascot" loading="lazy" />
           <div class="project-card-number">01</div>
           <h3>RAG<br />Chatbot</h3>
           <p>AI chatbot that answers questions from my personal research notes. Built with FastAPI, ChromaDB, and Groq.</p>
+          <p class="project-card-highlight">Open the chat on the <strong>bottom right</strong> to talk to the chatbot.</p>
+          <button type="button" class="project-card-btn" onclick="document.getElementById('chatToggle').click()">
+            <span>Open Chatbot</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </button>
           <div class="project-card-meta">
             <span>FastAPI</span>
             <span>ChromaDB</span>
