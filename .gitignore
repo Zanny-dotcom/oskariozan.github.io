@@ -1,3 +1,16 @@
 .claude/
 CLAUDE.MD
 git-terminology.md
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editor / IDE metadata
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Windows
+Thumbs.db
