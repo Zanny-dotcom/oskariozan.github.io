@@ -1659,7 +1659,7 @@ img {
 
 .profile-stats {
   display: flex;
-  gap: 2.5rem;
+  gap: 4rem;
   padding: 1.25rem 0;
   border-top: 1px solid var(--grey);
   border-bottom: 1px solid var(--grey);
@@ -1679,8 +1679,16 @@ img {
   font-weight: 700;
 }
 
+.profile-stat-unit {
+  font-size: 0.7em;
+  font-weight: 600;
+  margin-left: 0.05em;
+  opacity: 0.85;
+  vertical-align: 0.08em;
+}
+
 .profile-stat-label {
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--white-dim);
