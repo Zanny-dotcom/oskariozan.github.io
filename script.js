@@ -196,16 +196,32 @@ if (storyViewer) {
   const nextZone = storyViewer.querySelector('.story-tap-next');
   let current = 0;
 
+  function tryPlay() {
+    try {
+      const p = videoEl.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {});
+    } catch (_) {}
+  }
+
   function loadStory(i) {
     const c = circles[i];
     if (!c) return;
     current = i;
-    videoEl.src = c.dataset.video;
-    videoEl.poster = c.dataset.poster || '';
     progressFill.style.width = '0%';
-    videoEl.currentTime = 0;
-    const playPromise = videoEl.play();
-    if (playPromise && typeof playPromise.catch === 'function') playPromise.catch(() => {});
+    videoEl.poster = c.dataset.poster || '';
+
+    const onReady = () => {
+      videoEl.removeEventListener('loadedmetadata', onReady);
+      videoEl.removeEventListener('canplay', onReady);
+      tryPlay();
+    };
+    videoEl.addEventListener('loadedmetadata', onReady, { once: true });
+    videoEl.addEventListener('canplay', onReady, { once: true });
+
+    videoEl.src = c.dataset.video;
+    videoEl.load();
+    // Warm attempt — may be rejected pre-metadata on iOS, the ready handlers retry.
+    tryPlay();
   }
 
   function openStory(i) {
@@ -214,6 +230,8 @@ if (storyViewer) {
     document.body.style.overflow = 'hidden';
     videoEl.muted = true;
     storyViewer.classList.remove('is-unmuted');
+    // Consume the user-gesture token synchronously before any src mutation.
+    tryPlay();
     loadStory(i);
   }
 
