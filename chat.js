@@ -24,7 +24,7 @@ const BACKEND_URL = 'https://api.oskariozan.com';
     </button>
     <div class="chat-panel" id="chatPanel">
       <div class="chat-header">
-        <span class="chat-header-title">Z Bikes</span>
+        <span class="chat-header-title">RAG-bot zanny (AI chat)</span>
         <span class="chat-header-dot"></span>
         <span class="chat-header-status">Ask me anything</span>
       </div>
