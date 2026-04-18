@@ -210,10 +210,21 @@ img {
 }
 
 .nav-toggle span {
-  width: 24px;
-  height: 2px;
-  background: var(--white);
-  transition: transform 0.3s, opacity 0.3s;
+  width: 26px;
+  height: 2.5px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--gold-light), var(--gold), var(--gold-dark));
+  box-shadow:
+    0 0 6px rgba(212, 175, 55, 0.65),
+    0 0 14px rgba(212, 175, 55, 0.35);
+  transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s;
+}
+
+.nav-toggle:hover span,
+.nav-toggle:focus-visible span {
+  box-shadow:
+    0 0 8px rgba(212, 175, 55, 0.85),
+    0 0 20px rgba(212, 175, 55, 0.55);
 }
 
 .nav-toggle.active span:first-child {
