@@ -106,7 +106,7 @@ document.querySelectorAll('.process-step').forEach(step => {
   });
 });
 
-// Lightbox (fitness page)
+// Lightbox (me page)
 const lightbox = document.getElementById('lightbox');
 if (lightbox) {
   const tiles = Array.from(document.querySelectorAll('.photo-tile[data-lightbox-index]'));
@@ -184,7 +184,7 @@ if (lightbox) {
   }, { passive: true });
 }
 
-// Story viewer (fitness page)
+// Story viewer (me page)
 const storyViewer = document.getElementById('storyViewer');
 if (storyViewer) {
   const circles = Array.from(document.querySelectorAll('.story-circle'));
