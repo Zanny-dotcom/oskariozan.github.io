@@ -55,6 +55,12 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 reveals.forEach(el => revealObserver.observe(el));
 
+// Safety net: if anything is still hidden after 4s (observer missed it,
+// printing, etc.), reveal it so content is never permanently invisible.
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+}, 4000);
+
 // Stat counter animation
 const statNumbers = document.querySelectorAll('.stat-number');
 
@@ -304,3 +310,62 @@ if (storyViewer) {
     touchStartY = null;
   }, { passive: true });
 }
+
+/* ============================
+   Liquid-glass interactions
+   (magnetic buttons · cursor spotlight)
+   Gated on fine pointers + motion preference.
+   ============================ */
+(function () {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (reduce || !finePointer) return;
+
+  // --- Magnetic buttons: element drifts toward the cursor, springs back ---
+  const STRENGTH = 0.32;   // how far it follows (0–1)
+  const MAX = 10;          // px clamp so it never wanders far
+  document.querySelectorAll('.magnetic').forEach((el) => {
+    el.addEventListener('mousemove', (e) => {
+      const r = el.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
+      const mx = Math.max(-MAX, Math.min(MAX, dx * STRENGTH));
+      const my = Math.max(-MAX, Math.min(MAX, dy * STRENGTH));
+      el.style.setProperty('--mx', mx.toFixed(1) + 'px');
+      el.style.setProperty('--my', my.toFixed(1) + 'px');
+      // sheen origin for the hero button glow
+      el.style.setProperty('--sheen-x', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+      el.style.setProperty('--sheen-y', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.setProperty('--mx', '0px');
+      el.style.setProperty('--my', '0px');
+    });
+  });
+
+  // --- Cursor spotlight: a gold glow tracks the cursor across glass cards ---
+  // Updated through a single rAF tick so many cards stay smooth.
+  const spots = document.querySelectorAll('.spotlight');
+  let queued = false;
+  let lastEvt = null;
+  let lastEl = null;
+
+  function paint() {
+    queued = false;
+    if (!lastEl || !lastEvt) return;
+    const r = lastEl.getBoundingClientRect();
+    lastEl.style.setProperty('--mx', (lastEvt.clientX - r.left) + 'px');
+    lastEl.style.setProperty('--my', (lastEvt.clientY - r.top) + 'px');
+  }
+
+  spots.forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      lastEvt = e;
+      lastEl = card;
+      if (!queued) {
+        queued = true;
+        requestAnimationFrame(paint);
+      }
+    });
+  });
+})();
