@@ -1,0 +1,328 @@
+/* ============================================================
+   Z BIKES (Experiment) — Liquid Glass overrides
+   Loaded AFTER styles.css. Only the sections unique to this page
+   live here; shared chrome (nav, hero, newsletter, footer) inherits
+   the main glass system. Reuses the --glass-* tokens from styles.css.
+   ============================================================ */
+
+/* Experiment banner — make it a slim glass strip instead of flat bar */
+.exp-banner {
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.65rem 1.5rem;
+  text-align: center;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  background: rgba(10, 10, 10, 0.6);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(12px) saturate(140%);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.18);
+}
+.exp-banner a { color: var(--gold); font-weight: 500; }
+.exp-banner a:hover { color: var(--gold-light); }
+.exp-banner span { color: var(--white-dim); }
+
+/* The Z Bikes hero uses two-tone "New Soul." — give the gold word the shimmer */
+.hero-shimmer-inline {
+  background: linear-gradient(100deg, var(--gold-dark), var(--gold), var(--gold-light), var(--white), var(--gold-light), var(--gold-dark));
+  background-size: 280% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  animation: shimmer 5s linear infinite;
+  font-style: italic;
+}
+
+/* ---------- Marquee ---------- */
+.marquee {
+  position: relative;
+  overflow: hidden;
+  padding: 1.1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  backdrop-filter: blur(14px) saturate(150%);
+  box-shadow: var(--glass-rim);
+}
+.marquee-track {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--white-dim);
+  animation: marqueeScroll 32s linear infinite;
+}
+.marquee-track span { padding-left: 1rem; }
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---------- Collection — glass card grid ---------- */
+.collection {
+  position: relative;
+  padding: 8rem 6vw;
+}
+.collection-inner { max-width: 1180px; margin: 0 auto; }
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.bike-card {
+  --mx: 0px; --my: 0px;
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-rim), var(--glass-shadow);
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s, border-color 0.4s;
+}
+.bike-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(201, 168, 76, 0.45);
+  box-shadow: var(--glass-rim), 0 20px 50px rgba(0, 0, 0, 0.55), var(--gold-glow);
+}
+.bike-card-img {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+.bike-card-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+.bike-card:hover .bike-card-img img { transform: scale(1.06); }
+/* fade the photo into the glass body so it reads as one panel */
+.bike-card-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(10, 10, 10, 0.6) 100%);
+}
+.bike-card-info {
+  position: relative;
+  padding: 1.6rem 1.8rem 1.8rem;
+}
+.bike-card-number {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--gold);
+  opacity: 0.75;
+}
+.bike-card-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 0.98;
+  margin: 0.3rem 0 0.7rem;
+}
+.bike-card-info p {
+  font-size: 0.88rem;
+  color: var(--white-dim);
+  line-height: 1.6;
+  margin-bottom: 1.1rem;
+}
+.bike-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.bike-card-meta span {
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  padding: 0.25rem 0.7rem;
+}
+
+/* ---------- Story ---------- */
+.story {
+  position: relative;
+  padding: 7rem 6vw;
+}
+.story-grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 4rem;
+  align-items: start;
+}
+.story-text .story-lead {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+.story-text p {
+  font-size: 0.95rem;
+  color: var(--white-dim);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+.story-stats {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+.stat {
+  flex: 1;
+  padding: 1.5rem 1.2rem;
+  border-radius: 16px;
+  text-align: center;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-rim), var(--glass-shadow);
+}
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+}
+.stat .gold { font-family: var(--font-display); font-size: 2.2rem; font-weight: 900; }
+.stat-label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  margin-top: 0.6rem;
+}
+
+/* ---------- Process ---------- */
+.process {
+  position: relative;
+  padding: 7rem 6vw;
+}
+.process-header { max-width: 1180px; margin: 0 auto 3rem; }
+.process-steps {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.process-step {
+  --mx: 0px; --my: 0px;
+  position: relative;
+  padding: 2rem 1.6rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-rim), var(--glass-shadow);
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s, border-color 0.4s;
+}
+.process-step:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201, 168, 76, 0.45);
+  box-shadow: var(--glass-rim), 0 18px 44px rgba(0, 0, 0, 0.5), var(--gold-glow);
+}
+.process-step .step-number {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 900;
+  font-style: italic;
+  color: rgba(201, 168, 76, 0.12);
+  -webkit-text-stroke: 1.2px var(--gold);
+  text-shadow: 0 0 18px rgba(201, 168, 76, 0.25);
+  margin-bottom: 0.8rem;
+  line-height: 1;
+}
+.process-step h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+.process-step p {
+  font-size: 0.86rem;
+  color: var(--white-dim);
+  line-height: 1.6;
+}
+
+/* ---------- Big quote ---------- */
+.quote-section {
+  position: relative;
+  padding: 8rem 6vw;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.big-quote {
+  position: relative;
+  max-width: 900px;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--white);
+  padding: 3.5rem 3rem;
+  border-radius: 28px;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-rim), 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.big-quote em { font-style: italic; }
+.quote-mark {
+  font-family: var(--font-display);
+  font-size: 2.4em;
+  line-height: 0;
+  vertical-align: -0.35em;
+  opacity: 0.5;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .story-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .collection, .story, .process, .quote-section { padding: 5rem 7vw; }
+  .collection-grid { grid-template-columns: 1fr; }
+  .marquee-track { font-size: 1.15rem; }
+}
+@media (max-width: 480px) {
+  .process-steps { grid-template-columns: 1fr; }
+  .story-stats { flex-direction: column; }
+  .big-quote { padding: 2.5rem 1.8rem; }
+}
+
+/* Fallback: no backdrop-filter -> solid glassy surrogate */
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .marquee, .bike-card, .stat, .process-step, .big-quote, .exp-banner {
+    background: var(--grey-dark);
+    border-color: rgba(201, 168, 76, 0.22);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  .hero-shimmer-inline {
+    -webkit-text-fill-color: var(--gold);
+    color: var(--gold);
+    background: none;
+  }
+}
