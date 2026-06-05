@@ -41,8 +41,11 @@
   position: relative;
   overflow: hidden;
   padding: 1.1rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  margin: 0 auto;
+  max-width: 1180px;
+  width: calc(100% - 12vw);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 999px;
   background: var(--glass-bg);
   -webkit-backdrop-filter: blur(14px) saturate(150%);
   backdrop-filter: blur(14px) saturate(150%);
