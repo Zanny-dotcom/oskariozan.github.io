@@ -40,7 +40,7 @@
 .marquee {
   position: relative;
   overflow: hidden;
-  padding: 1.1rem 0;
+  padding: 1.45rem 0;
   margin: 0 auto;
   max-width: 1180px;
   width: calc(100% - 12vw);
