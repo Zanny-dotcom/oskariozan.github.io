@@ -39,7 +39,7 @@
   }
   function render(){
     const online=state?.online&&now()-state.updatedAt<10000;$('light').classList.toggle('online',Boolean(online));
-    $('status').textContent=online?'Collector online':api?'Collector offline':'Feed setup pending';
+    $('status').textContent=online?'Collector online':!api?'Feed setup pending':!state?'Connecting':'Collector offline';
     $('updated').textContent=state?.updatedAt?'Last update '+new Date(state.updatedAt).toLocaleTimeString():'No live sightings yet';
     const list=$('players'),search=$('search').value.toLowerCase(),visible=players().filter(p=>p.name.toLowerCase().includes(search));list.replaceChildren();$('count').textContent=visible.length;
     for(const p of visible){const b=el('button',p.name),s=el('small',`${p.role||p.relationship} · ${p.position.join(', ')}`);b.append(s);b.addEventListener('click',()=>inspect(p,true));list.append(b);}
