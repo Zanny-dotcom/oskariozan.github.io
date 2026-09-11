@@ -14,3 +14,9 @@ git-terminology.md
 
 # Windows
 Thumbs.db
+
+# Swarm backend local tooling and secrets
+node_modules/
+.wrangler/
+.dev.vars*
+.env*

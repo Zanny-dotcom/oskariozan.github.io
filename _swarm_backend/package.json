@@ -1,0 +1,1 @@
+{"name":"swarm-public-backend","private":true,"type":"module","scripts":{"test":"node --test test-worker.js","deploy":"wrangler deploy"},"devDependencies":{"wrangler":"^4.131.1"}}

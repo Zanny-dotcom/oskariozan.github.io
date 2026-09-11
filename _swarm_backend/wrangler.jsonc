@@ -1,0 +1,8 @@
+{
+  "name": "oskariozan-swarm",
+  "main": "worker.js",
+  "compatibility_date": "2026-09-11",
+  "workers_dev": true,
+  "d1_databases": [{"binding":"DB","database_name":"oskariozan-swarm","database_id":"REPLACE_AFTER_DATABASE_CREATION"}],
+  "triggers": {"crons":["*/5 * * * *"]}
+}
