@@ -35,6 +35,12 @@ function windowMs(url) {
   assert([...q.keys()].every(k=>['windowSeconds','offset'].includes(k)) && [...new Set(q.keys())].every(k=>q.getAll(k).length===1));
   const seconds=Number(q.get('windowSeconds')||30); assert(integer(seconds,1,43200)); return seconds*1000;
 }
+function areaAt([x,y]) {
+  if(x>=3000&&x<=3100&&y>=10270&&y<=10370)return 'aquanite';
+  if(x>=3200&&x<=3280&&y>=10300&&y<=10400)return 'scorpia';
+  if(x>=2500&&x<=2570&&y>=4670&&y<=4750)return 'mage-bank';
+  return y>=6400?`underground:${Math.floor(x/64)}:${Math.floor(y/64)}`:'surface';
+}
 function encounter(row) { return {id:row.id,name:row.name,identity:row.identity,area:row.area,position:[row.x,row.y,row.plane],relationship:row.relationship,firstSeenAt:row.first,lastSeenAt:row.last}; }
 export default {
   async fetch(request,env) {
@@ -78,7 +84,7 @@ export default {
       const players=results.slice(0,5000).map(p=>({...encounter(p),observed:false,expiresAt:p.last+window}));
       for(const p of live.players)if(p.lastSeenAt>=start && p.lastSeenAt<=now+2000){
         // Hide the saved summary if live reports already represent that name and area.
-        for(let i=players.length-1;i>=0;i--)if(players[i].firstSeenAt!==undefined && players[i].identity===p.identity && players[i].position[2]===p.position[2] && Math.abs(players[i].position[1]-p.position[1])<128)players.splice(i,1);
+        for(let i=players.length-1;i>=0;i--)if(players[i].firstSeenAt!==undefined && players[i].identity===p.identity && players[i].position[2]===p.position[2] && players[i].area===areaAt(p.position))players.splice(i,1);
         players.push({...p,observed:online&&p.observed&&now-p.lastSeenAt<4000,expiresAt:p.lastSeenAt+window});
       }
       const clients=online?live.clients.filter(p=>now-p.lastSeenAt<5000):[];
